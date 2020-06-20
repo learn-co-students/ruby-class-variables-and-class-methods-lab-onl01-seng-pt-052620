@@ -14,6 +14,7 @@ class Song
         @genre = genre
         @@artists << artist
         @@genres << genre
+        @@artist_count
     end
 
     def self.count
@@ -21,20 +22,22 @@ class Song
     end
 
     def self.artists
-        @@artists.uniq
+        @@artists.uniq!
     end
 
     def self.genres
-        @@genres.uniq
+        @@genres.uniq!
     end
 
     def self.genre_count
-        @@genre_count = genres.count
+        @@genres.each do |genre|
+            number = 0
+            @@genre_count = {genre => number += 1}
+        end
         @@genre_count
     end
 
     def self.artist_count
-        @@artist_count = artists.count
-        @@artist_count
+
     end
 end
