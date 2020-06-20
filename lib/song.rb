@@ -29,20 +29,15 @@ class Song
     end
 
     def self.genre_count
-        counter = 0
-        genre_hash = {}
-        @@genres.each do |genre|
-            if @@genres.include?(genre)
-                @@genre_count[genre] = counter+=1
-            else
-                nil
-            end
-        end
-        @@genre_count
+        count = Hash.new(0)
+        @@genres.each { |genre| count[genre] += 1 }
+        count
     end
 
     def self.artist_count
-
+        counts = Hash.new(0)
+        @@artists.each { |artist| counts[artist] += 1}
+        counts
     end
 end
 
