@@ -14,6 +14,7 @@ class Song
         @genre = genre
         @@artists << artist
         @@genres << genre
+        @@genre_count 
     end
 
     def self.count
@@ -29,14 +30,13 @@ class Song
     end
 
     def self.genre_count
-        @@genres.each do |genre|
-            number = 0
-            @@genre_count = {genre => number += 1}
+        @@genres.collect do |genre, number|
+            if genre.has_key?
+            @@genre_count = {genre => number}
         end
-        @@genre_count
     end
 
     def self.artist_count
-
+        
     end
 end
